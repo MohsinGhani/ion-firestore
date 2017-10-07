@@ -22,6 +22,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import firebase from 'firebase';
+import { ChatComponent } from '../components/chat/chat';
+import { IonicStorageModule } from '@ionic/storage';
 
  // Initialize Firebase
  var config = {
@@ -44,10 +46,12 @@ firebase.initializeApp(config)
       TabsPage,
       Login,
       ResetPassword,
-      Signup
+      Signup,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config, 'test'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
@@ -62,7 +66,9 @@ firebase.initializeApp(config)
       TabsPage,
       Login,
       ResetPassword,
-      Signup
+      Signup,
+    ChatComponent
+    
   ],
   providers: [
       AuthData,

@@ -15,6 +15,15 @@
 
 <ion-content padding>
   <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    
+    <ion-item>
+      <ion-label stacked>ID</ion-label>
+      <ion-input #id formControlName="id" type="text" placeholder="Unique ID" [class.invalid]="!signupForm.controls.id.valid" (ngModelChange)="verifyID($event)">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="idVerification">
+      <p>ID must be Unique and greater than 4 alphabet.</p>
+    </ion-item>
 
     <ion-item>
       <ion-label stacked>Name</ion-label>
@@ -40,7 +49,7 @@
       <p>Your password needs more than 6 characters.</p>
     </ion-item>
 
-    <button ion-button block type="submit">
+    <button ion-button block type="submit" [disabled]="!signupForm.valid || idVerification">
       Create an Account
     </button>
   </form>
