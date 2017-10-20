@@ -1,0 +1,48 @@
+<!--
+  Generated template for the MessagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Messages</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item *ngFor="let msg of messages | async">
+          <!-- <div [ngClass]="{'you': msg.name != 'Bot' }">
+              <h3>{{msg.name}}</h3>
+              <p style="white-space:normal;">{{msg.text}}</p>
+          </div> -->
+          <p style="white-space:normal;">{{msg.text}}</p>
+      </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <form #messageForm="ngForm" novalidate>
+      <ion-toolbar>
+          <ion-item>
+              <ion-textarea type="text" placeholder="Type Your Message here" [(ngModel)]="message" name="message" (keydown)=sendMessageOnEnter($event) required></ion-textarea>
+          </ion-item>
+          <ion-buttons end>
+              <button ion-button icon-right color="royal" [disabled]="!messageForm.form.valid" (click)="sendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+          </ion-buttons>
+      </ion-toolbar>
+  </form>
+</ion-footer>
+
+
+<!-- <ion-content padding>
+  <div *ngFor='let message of messages | async '>
+    {{message.text}}
+  </div>
+</ion-content> -->

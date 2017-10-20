@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { Login } from '../pages/login/login';
+import { MessagesPage } from '../pages/messages/messages';
 
 import {ResetPassword}from '../pages/reset-password/reset-password';
 import {Signup} from '../pages/signup/signup';
@@ -45,6 +46,7 @@ firebase.initializeApp(config)
     HomePage,
       TabsPage,
       Login,
+      MessagesPage,
       ResetPassword,
       Signup,
     ChatComponent
@@ -65,6 +67,7 @@ firebase.initializeApp(config)
     HomePage,
       TabsPage,
       Login,
+      MessagesPage,
       ResetPassword,
       Signup,
     ChatComponent

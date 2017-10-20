@@ -11,7 +11,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor='let user of users | async ' (click)="showMessages(user.id)">
+    <button ion-item *ngFor='let user of users | async ' (click)="showMessages(user.id)" [navPush]='messagePage' [navParams]='user.id'>
       <ion-icon name="radio-button-off" *ngIf="!user.isPresence"></ion-icon>
       <ion-icon name="radio-button-on" *ngIf="user.isPresence"></ion-icon>
       {{user.name}}
